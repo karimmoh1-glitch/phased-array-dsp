@@ -58,6 +58,20 @@ for block in audio_blocks():                                        # block = [c
 For RF, pass `propagation_speed=SPEED_OF_LIGHT` and positions in metres. The estimator is agnostic
 to the carrier, so it also works on a real IF signal.
 
+## Visual assets
+
+`assets/dsp_pipeline.svg` is the signal-flow diagram. Its generator is stdlib-only.
+`assets/aoa_benchmark.png` is a 300 DPI accuracy plot. Every point in it comes from live runs of this
+library, and it takes about 1.5 minutes to generate.
+
+```bash
+.venv/bin/python scripts/make_pipeline_svg.py
+```
+
+```bash
+.venv/bin/pip install -e '.[plots]' && .venv/bin/python scripts/make_benchmark_png.py
+```
+
 ## Verify and compile
 
 ```bash
