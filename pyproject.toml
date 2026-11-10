@@ -1,0 +1,34 @@
+[project]
+name = "phasedarray"
+version = "0.1.0"
+description = "Pure-Python FFT, cross-correlation and angle-of-arrival estimation for SDR / acoustic phased arrays"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "mypy>=1.10"]
+
+[project.scripts]
+phasedarray = "phasedarray.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+phasedarray = ["py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.mypy]
+strict = true
+mypy_path = ["src", "tests"]
+files = ["src", "tests"]
+warn_unreachable = true
